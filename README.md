@@ -1,1 +1,1 @@
-# FlaskCovidUpdate
+# Flask Webpage for getting the new cases for certain countries and plotting its history

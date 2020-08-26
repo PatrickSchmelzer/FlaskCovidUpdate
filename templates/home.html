@@ -1,0 +1,56 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<div style="float: left">
+    <table>
+        <tr>
+            <th>Country</th>
+            <th>NewCases</th>
+            <th>Cases/100'000</th>
+        </tr>
+        <tr>
+            <td>World</td>
+            <td>{{covidData.World.NewConfirmed}}</td>
+            <td>-</td>
+        </tr>
+        <tr>
+            <td><a href={{ url_for('plot', country="Italy") }} </a> Italy</td>
+            <td>{{covidData.Italy.NewConfirmed}}</td>
+            <td>
+                <script>document.write(({{ covidData.Italy.NewConfirmed }} / {{inhabitants.Italy}} * 100000).toFixed(2))</script>
+            </td>
+        </tr>
+        <tr>
+            <td><a href={{ url_for('plot', country="Germany") }} </a> Germany</td>
+            <td>{{covidData.Germany.NewConfirmed}}</td>
+            <td>
+                <script>document.write(({{ covidData.Germany.NewConfirmed }} / {{inhabitants.Germany}} * 100000).toFixed(2))</script>
+            </td>
+        </tr>
+        <tr>
+            <td><a href={{ url_for('plot', country="Switzerland") }} </a> Switzerland</td>
+            <td>{{covidData.Switzerland.NewConfirmed}}</td>
+            <td>
+                <script>document.write(({{ covidData.Switzerland.NewConfirmed }} / {{inhabitants.Switzerland}} * 100000).toFixed(2))</script>
+            </td>
+        </tr>
+        <tr>
+            <td><a href={{ url_for('plot', country="Spain") }} </a> Spain</td>
+            <td>{{covidData.Spain.NewConfirmed}}</td>
+            <td>
+                <script>document.write(({{ covidData.Spain.NewConfirmed }} / {{inhabitants.Spain}} * 100000).toFixed(2))</script>
+            </td>
+        </tr>
+        <tr>
+            <td><a href={{ url_for('plot', country="France") }} </a> France</td>
+            <td>{{covidData.France.NewConfirmed}}</td>
+            <td>
+                <script>document.write(({{ covidData.France.NewConfirmed }} / {{inhabitants.France}} * 100000).toFixed(2))</script>
+            </td>
+        </tr>
+    </table>
+</div>
+{% endblock %}
