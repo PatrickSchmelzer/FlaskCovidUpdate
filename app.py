@@ -2,6 +2,7 @@ import flask
 import covidData
 import datetime
 import io
+import waitress
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -39,3 +40,5 @@ def plot(country):
     response=flask.make_response(png_output.getvalue())
     response.headers['Content-Type'] = 'image/png'
     return response
+
+waitress.serve(app, host='0.0.0.0', port=8080, threads=1, url_scheme='https')
